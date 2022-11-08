@@ -28,3 +28,11 @@ WHERE salary NOT BETWEEN 50000 AND 100000;
 SELECT birth_date FROM employees WHERE birth_date NOT LIKE '195%'
 ORDER BY birth_date DESC; #order in descending order, highest to lowest
 #195% is anything in the 1950's
+
+SELECT * FROM employees WHERE birth_date LIKE '1954-01%'
+ORDER BY birth_date, last_name LIMIT 50;
+
+SELECT * FROM employees WHERE birth_date LIKE '1954-01%'
+ORDER BY birth_date, last_name LIMIT 50 OFFSET 50;
+
+# LIKE '__e%' searches for strings that have the third letter as 'e'
