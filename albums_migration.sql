@@ -10,4 +10,5 @@ CREATE TABLE albums (
     sales DOUBLE NOT NULL,
     genre VARCHAR(50) NOT NULL,
     PRIMARY KEY (album_id)
+#boop
 );
