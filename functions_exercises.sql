@@ -40,6 +40,9 @@ WHERE last_name LIKE 'e%' OR last_name LIKE '%e';
 SELECT CONCAT(first_name, last_name) FROM employees
 WHERE last_name LIKE 'e%' AND last_name LIKE '%e';
 
+SELECT CONCAT(first_name, ' ', last_name) AS 'full name' FROM employees
+WHERE last_name LIKE 'e%' AND last_name LIKE '%e';
+
 SELECT first_name, last_name FROM employees
 WHERE last_name LIKE '%Q%' AND NOT last_name LIKE '%QU%';
 
@@ -70,8 +73,9 @@ ORDER BY birth_date, hire_date DESC;
 
 #SELECT DATEDIFF('2017/08/25', '2011/08/25');
 
-SELECT DATEDIFF(curdate(), hire_date) FROM employees
+SELECT *, DATEDIFF(CURDATE(), hire_date) FROM employees
 WHERE month(birth_date) = 12
-AND day(birth_date) = 25;
+AND day(birth_date) = 25
+ORDER BY DATEDIFF(CURDATE(), hire_date) DESC;
 
 
