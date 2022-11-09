@@ -21,6 +21,9 @@ WHERE last_name LIKE 'e%' AND last_name LIKE '%e'
 AND first_name LIKE 'e%' AND first_name LIKE '%e'
 GROUP BY first_name, last_name;
 #I think I don't understand the question here
+#correct answer below
+SELECT DISTINCT first_name, last_name FROM employees WHERE
+last_name LIKE 'e%' AND last_name LIKE '%e';
 
 #Find the unique last names with a 'q' but not 'qu'. Your results should be:
 SELECT DISTINCT last_name FROM employees
@@ -29,6 +32,13 @@ WHERE last_name LIKE '%q%' AND NOT last_name LIKE '%qu%';
 #Add a COUNT() to your results and use ORDER BY to make it easier to find
 # employees whose unusual name is shared with others.
 
+SELECT COUNT(last_name), last_name FROM employees WHERE
+last_name LIKE '%q%' AND last_name NOT LIKE '%qu%'
+GROUP BY last_name;
 
 #Update your query for 'Irena', 'Vidya', or 'Maya'. Use count(*) and GROUP BY
 # to find the number of employees for each gender with those names.
+
+SELECT COUNT(*), first_name, gender FROM employees
+WHERE first_name = 'irena' OR first_name = 'vidya' OR first_name = 'maya'
+GROUP BY first_name, gender;
